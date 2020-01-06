@@ -1,0 +1,10 @@
+{
+  "name": "IBM Watson Authentication",
+  "label": "IBM Watson Authentication",
+  "description": "API Keys and URL's for IBM Watson Services",
+  "group": "",
+  "artifactName": "",
+  "packageVersion": "1.0.0",
+  "codeVersion": "",
+  "commands": []
+}

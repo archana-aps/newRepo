@@ -1,0 +1,31 @@
+# This is a sample build configuration for Java (Gradle).
+# Check our guides at https://confluence.atlassian.com/x/zd-5Mw for more examples.
+# Only use spaces to indent your .yml configuration.
+# -----
+# You can specify a custom docker image from Docker Hub as your build environment.
+image: openjdk:11
+
+pipelines:
+  default:
+    - step:
+        caches:
+          - gradle
+        script: # Modify the commands below to build your repository.
+          # You must commit the Gradle wrapper to your repository
+          # https://docs.gradle.org/current/userguide/gradle_wrapper.html
+          - bash ./gradlew clean build shadowJar -PsnapshotBuild=false
+  
+  branches:
+    master:
+      - step:
+         script:
+           - bash ./gradlew clean build shadowJar -PsnapshotBuild=false
+           - pipe: atlassian/aws-s3-deploy:0.3.5
+             variables:
+               AWS_ACCESS_KEY_ID: '${AWS_ACCESS_KEY_ID}'
+               AWS_SECRET_ACCESS_KEY: '${AWS_SECRET_ACCESS_KEY}'
+               AWS_DEFAULT_REGION: 'us-west-2'
+               S3_BUCKET: 'solve-packages'
+               LOCAL_PATH: 'build/commands/'
+
+ 

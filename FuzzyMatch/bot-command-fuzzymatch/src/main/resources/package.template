@@ -1,0 +1,10 @@
+{
+  "name": "bot-command-fuzzymatch",
+  "label": "Fuzzy Match",
+  "description": "Provides actions for Fuzzy Match operations.",
+  "group": "",
+  "artifactName": "",
+  "packageVersion": "",
+  "codeVersion": "",
+  "commands": []
+}
