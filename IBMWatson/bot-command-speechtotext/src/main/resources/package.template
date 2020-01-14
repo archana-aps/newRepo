@@ -1,0 +1,10 @@
+{
+  "name": "IBM Watson Speech To Text",
+  "label": "IBM Watson Speech To Text",
+  "description": "Watson service that converts audio speech to text.",
+  "group": "",
+  "artifactName": "",
+  "packageVersion": "1.0.0",
+  "codeVersion": "",
+  "commands": []
+}

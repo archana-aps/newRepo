@@ -1,0 +1,10 @@
+{
+  "name": "GitHub",
+  "label": "GitHub",
+  "description": "Provides actions for GitHub operations.",
+  "group": "",
+  "artifactName": "",
+  "packageVersion": "",
+  "codeVersion": "",
+  "commands": []
+}

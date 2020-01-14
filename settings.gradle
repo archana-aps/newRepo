@@ -1,0 +1,16 @@
+rootProject.name = 'Packages'
+
+include 'FuzzyMatch:bot-command-fuzzymatch'
+findProject(':FuzzyMatch:bot-command-fuzzymatch')?.projectDir = new File('FuzzyMatch/bot-command-fuzzymatch')
+findProject(':FuzzyMatch:bot-command-fuzzymatch')?.name = 'bot-command-fuzzymatch'
+
+include 'IBMWatson:bot-command-speechtotext'
+findProject(':IBMWatson:bot-command-speechtotext')?.projectDir = new File('IBMWatson/bot-command-speechtotext')
+findProject(':IBMWatson:bot-command-speechtotext')?.name = 'bot-command-speechtotext'
+
+include 'IBMWatson:bot-command-watsonconnect'
+findProject(':IBMWatson:bot-command-watsonconnect')?.projectDir = new File('IBMWatson/bot-command-watsonconnect')
+findProject(':IBMWatson:bot-command-watsonconnect')?.name = 'bot-command-watsonconnect'
+
+include 'bot-command-githubconnector'
+findProject(':bot-command-githubconnector')?.projectDir = new File('bot-command-githubconnector')

@@ -1,0 +1,151 @@
+import groovy.json.JsonOutput
+import groovy.json.JsonSlurper
+
+buildscript {
+    repositories {
+        mavenCentral()
+        jcenter()
+        maven {
+            url "https://plugins.gradle.org/m2/"
+        }
+
+    }
+}
+
+plugins {
+    id 'java'
+}
+
+def projectListToPublish = ["bot-command-speechtotext"]
+
+configure(allprojects) {
+
+    apply plugin: "java"
+    apply plugin: 'jacoco'
+
+    ext {
+        groupName = 'com.automationanywhere'
+        testNgVersion = '6.14.3'
+        log4jVersion = '2.10.0'
+        version '2.0.0'
+
+    }
+    group "$groupName"
+
+    sourceCompatibility = JavaVersion.VERSION_11
+
+    compileJava.options.encoding = 'UTF-8'
+    compileTestJava.options.encoding = 'UTF-8'
+
+    repositories {
+        jcenter()
+        mavenCentral()
+        maven {
+            url "https://dl.bintray.com/jetbrains/intellij-third-party-dependencies/"
+        }
+    }
+
+    configurations {
+        apt
+    }
+
+    apply plugin: 'maven-publish'
+
+
+    afterEvaluate {
+        if (snapshotBuild.toBoolean()) {
+            version += '-SNAPSHOT'
+        }
+    }
+
+    test {
+        testLogging {
+            exceptionFormat = 'full'
+        }
+        useTestNG() {
+            excludeGroups 'integration'
+        }
+        afterSuite { desc, result ->
+            if (!desc.parent)
+                println("${result.resultType} " +
+                        "(${result.testCount} tests, " +
+                        "${result.successfulTestCount} successes, " +
+                        "${result.failedTestCount} failures, " +
+                        "${result.skippedTestCount} skipped)")
+        }
+        maxHeapSize "3g"
+    }
+
+
+    task integration(type: Test) {
+        useTestNG() {
+            includeGroups 'integration', 'pr_integration'
+        }
+        maxHeapSize "3g"
+        afterSuite { desc, result ->
+            if (!desc.parent)
+                println("${result.resultType} " +
+                        "(${result.testCount} tests, " +
+                        "${result.successfulTestCount} successes, " +
+                        "${result.failedTestCount} failures, " +
+                        "${result.skippedTestCount} skipped)")
+        }
+
+        jacoco {
+            destinationFile = file("$buildDir/jacoco/integrationTest/jacocoIT.exec")
+        }
+    }
+
+}
+
+task codeCoverageReport(type: JacocoReport) {
+    executionData fileTree(project.rootDir.absolutePath).include("**/build/jacoco/*.exec")
+
+    subprojects.each {
+        sourceSets it.sourceSets.main
+    }
+
+    reports {
+        xml.enabled true
+        xml.destination file("${buildDir}/reports/jacoco/report.xml")
+        html.enabled false
+        csv.enabled false
+    }
+
+    afterEvaluate {
+        classDirectories.from = files(classDirectories.files.collect {
+            fileTree(dir: it, exclude: ['**/embedded-resources/1bd6fceb-b036-4202-9932-4dc18349bd5c.zip'
+            ])
+        })
+    }
+}
+
+codeCoverageReport.dependsOn {
+    subprojects*.test
+}
+
+
+task integrationTestReport(type: TestReport) {
+
+    destinationDir = file("${buildDir}/reports/integrationTest/integrationCombineReport")
+    reportOn subprojects*.integration
+}
+
+task integrationTestCodeCoverageReport(type: JacocoReport) {
+    executionData fileTree(project.rootDir.absolutePath).include("**/build/jacoco/integrationTest/jacocoIT.exec")
+
+    subprojects.each {
+        sourceSets it.sourceSets.main
+    }
+
+    reports {
+        xml.enabled true
+        xml.destination file("${buildDir}/reports/integrationTest/jacoco/integrationReport.xml")
+        html.enabled false
+        csv.enabled false
+    }
+}
+
+integrationTestCodeCoverageReport.dependsOn {
+    subprojects*.integration
+}

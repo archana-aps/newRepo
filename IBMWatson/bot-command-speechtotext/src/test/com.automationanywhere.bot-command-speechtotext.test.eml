@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component LANGUAGE_LEVEL="JDK_11" inheritJdk="true">
+	<output-test url="file://$MODULE_DIR$/../../../bot-command-speechtotext/out/test/classes"/>
+	<exclude-output/>
+	<contentEntry url="file://$MODULE_DIR$/../../../bot-command-speechtotext/src/test">
+		<testFolder url="file://$MODULE_DIR$/../../../bot-command-speechtotext/src/test/java"/>
+		<testFolder url="file://$MODULE_DIR$/../../../bot-command-speechtotext/src/test/resources"/>
+	</contentEntry>
+	<levels>
+		<level name="Gradle: :command-annotations:" value="project"/>
+		<level name="Gradle: :bot-runtime:" value="project"/>
+		<level name="Gradle: :bot-api:" value="project"/>
+		<level name="Gradle: :i18n-api:" value="project"/>
+		<level name="Gradle: com.ibm.watson:ibm-watson:7.3.0" value="project"/>
+		<level name="Gradle: com.googlecode.json-simple:json-simple:1.1" value="project"/>
+		<level name="Gradle: org.apache.logging.log4j:log4j-core:2.10.0" value="project"/>
+		<level name="Gradle: org.mockito:mockito-all:1.8.4" value="project"/>
+		<level name="Gradle: org.testng:testng:6.14.3" value="project"/>
+		<level name="Gradle: com.ibm.watson:assistant:7.3.0" value="project"/>
+		<level name="Gradle: com.ibm.watson:compare-comply:7.3.0" value="project"/>
+		<level name="Gradle: com.ibm.watson:discovery:7.3.0" value="project"/>
+		<level name="Gradle: com.ibm.watson:language-translator:7.3.0" value="project"/>
+		<level name="Gradle: com.ibm.watson:natural-language-classifier:7.3.0" value="project"/>
+		<level name="Gradle: com.ibm.watson:natural-language-understanding:7.3.0" value="project"/>
+		<level name="Gradle: com.ibm.watson:personality-insights:7.3.0" value="project"/>
+		<level name="Gradle: com.ibm.watson:speech-to-text:7.3.0" value="project"/>
+		<level name="Gradle: com.ibm.watson:text-to-speech:7.3.0" value="project"/>
+		<level name="Gradle: com.ibm.watson:tone-analyzer:7.3.0" value="project"/>
+		<level name="Gradle: com.ibm.watson:visual-recognition:7.3.0" value="project"/>
+		<level name="Gradle: com.ibm.watson:common:7.3.0" value="project"/>
+		<level name="Gradle: org.apache.logging.log4j:log4j-api:2.10.0" value="project"/>
+		<level name="Gradle: com.beust:jcommander:1.72" value="project"/>
+		<level name="Gradle: org.apache-extras.beanshell:bsh:2.0b6" value="project"/>
+		<level name="Gradle: com.ibm.cloud:sdk-core:4.5.0" value="project"/>
+		<level name="Gradle: com.squareup.okhttp3:logging-interceptor:3.12.1" value="project"/>
+		<level name="Gradle: com.squareup.okhttp3:okhttp-urlconnection:3.12.1" value="project"/>
+		<level name="Gradle: com.squareup.okhttp3:okhttp:3.12.1" value="project"/>
+		<level name="Gradle: commons-io:commons-io:2.6" value="project"/>
+		<level name="Gradle: org.apache.commons:commons-lang3:3.8.1" value="project"/>
+		<level name="Gradle: com.google.code.findbugs:annotations:3.0.1" value="project"/>
+		<level name="Gradle: com.google.guava:guava:27.1-android" value="project"/>
+		<level name="Gradle: com.google.code.findbugs:jsr305:3.0.2" value="project"/>
+		<level name="Gradle: com.google.code.gson:gson:2.8.5" value="project"/>
+		<level name="Gradle: io.reactivex.rxjava2:rxjava:2.2.7" value="project"/>
+		<level name="Gradle: com.squareup.okio:okio:1.15.0" value="project"/>
+		<level name="Gradle: net.jcip:jcip-annotations:1.0" value="project"/>
+		<level name="Gradle: com.google.guava:failureaccess:1.0.1" value="project"/>
+		<level name="Gradle: com.google.guava:listenablefuture:9999.0-empty-to-avoid-conflict-with-guava" value="project"/>
+		<level name="Gradle: org.checkerframework:checker-compat-qual:2.5.2" value="project"/>
+		<level name="Gradle: com.google.errorprone:error_prone_annotations:2.2.0" value="project"/>
+		<level name="Gradle: com.google.j2objc:j2objc-annotations:1.1" value="project"/>
+		<level name="Gradle: org.codehaus.mojo:animal-sniffer-annotations:1.17" value="project"/>
+		<level name="Gradle: org.reactivestreams:reactive-streams:1.0.2" value="project"/>
+	</levels>
+</component>

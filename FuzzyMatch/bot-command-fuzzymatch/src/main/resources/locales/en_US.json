@@ -1,0 +1,16 @@
+{
+  "label" : "Fuzzy Match",
+  "description" : "Provides actions for Fuzzy Match operations.",
+  "FuzzyMatch.label": "Fuzzy Match",
+  "FuzzyMatch.return_label": "Assign the output to variable",
+  "FuzzyMatch.description": "Fuzzy Match between two strings or files",
+  "FuzzyMatch.node_label": " : Fuzzy Match between  {{input1String}}  | {{inputString}} | {{filePath1}} | and {{input2String}}  | {{outputString}} | {{filePath2}}",
+  "FuzzyMatch.input1": "Input 1",
+  "FuzzyMatch.input2": "Input 2",
+  "Index.node_label": "string",
+  "Index.label": "Input String",
+  "Index.node_label_file": "file",
+  "Index.label_file": "Input File",
+  "Index.description": "e.g. Enter any string",
+  "Index.description_file": "e.g. Required extension .txt or .pdf"
+}
